@@ -1,4 +1,4 @@
-# framboesa
+# Carinhosamente apelidado de Framboesa
 Interface grafica (GUI) para o FFUF
 
 
