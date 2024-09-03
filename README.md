@@ -28,6 +28,18 @@ Na seção Variáveis de sistema, encontre a variável Path, selecione-a e cliqu
 Adicione o caminho C:\Users\<SeuUsuário>\go\bin ao final da lista. (Substitua <SeuUsuário> pelo seu nome de usuário do Windows.)
 Clique em OK para salvar as alterações.
 
+ou via terminal:
+
+# Define a variável GOPATH (se ainda não estiver definida)
+[System.Environment]::SetEnvironmentVariable('GOPATH', [System.IO.Path]::Combine($env:USERPROFILE, 'go'), [System.EnvironmentVariableTarget]::User)
+
+# Adiciona GOPATH\bin ao PATH
+$env:Path += ";$env:GOPATH\bin"
+
+# Atualiza a variável PATH permanentemente
+[System.Environment]::SetEnvironmentVariable('Path', $env:Path, [System.EnvironmentVariableTarget]::User)
+
+
 Se tudo der certo: 
 
 ffuf -h
