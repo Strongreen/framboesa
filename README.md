@@ -43,3 +43,15 @@ $env:Path += ";$env:GOPATH\bin"
 Se tudo der certo: 
 
 ffuf -h
+
+transformar em um aqruivo .exe
+pyinstaller --onefile --windowed --name Framboesa --distpath=. --icon=icon/framboesa.ico framboesa/main.py
+
+( mas tá dando erro de module src)
+
+
+pra executar é só executar:
+
+```
+ python -m framboesa.main
+```
