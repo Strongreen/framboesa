@@ -5,7 +5,7 @@ O **Framboesa** é uma interface gráfica (GUI) desenvolvida para facilitar o us
 
 O objetivo deste projeto é tornar o FFUF mais acessível, permitindo que usuários configurem e executem a ferramenta sem a necessidade de utilizar a linha de comando, ideal para quem não está familiarizado com terminais. 🚀
 
-## 📥 Pré-requisitos
+## 📥 Pré-requisitos Windows
 
 Para usar o Framboesa no Windows, você precisará instalar o FFUF e configurar o Go:
 
@@ -44,24 +44,69 @@ Para usar o Framboesa no Windows, você precisará instalar o FFUF e configurar 
    ```bash
    ffuf -h
    ```
+## 📥 Pré-requisitos Linux
 
-## 🛠️ Construção do Executável
+Para usar o Framboesa no Linux, você precisará instalar o FFUF e configurar o ambiente de desenvolvimento:
 
-Para transformar o Framboesa em um executável `.exe`:
+1. **Instale o Go e o FFUF:**
 
-```bash
-pyinstaller --onefile --windowed --name Framboesa --distpath=. --icon=icon/framboesa.ico framboesa/main.py
-```
-*(Observação: Tem um erro de módulo, como `ModuleNotFoundError: No module named 'src'` que precisa ser resolvidos.)*
+   Dependendo da sua distribuição Linux, você pode usar os seguintes comandos:
+
+   - **Debian/Ubuntu:**
+     ```bash
+     sudo apt update
+     sudo apt install golang-go
+     go install github.com/ffuf/ffuf/v2@latest
+     ```
+
+   - **Fedora:**
+     ```bash
+     sudo dnf install golang
+     go install github.com/ffuf/ffuf/v2@latest
+     ```
+
+   - **Arch Linux:**
+     ```bash
+     sudo pacman -S go
+     go install github.com/ffuf/ffuf/v2@latest
+     ```
+
+2. **Configure o Go e adicione ao PATH:**
+
+   Para garantir que você possa executar o FFUF de qualquer lugar no terminal, adicione o diretório `$GOPATH/bin` ao seu `PATH`.
+
+   - Defina a variável GOPATH:
+     ```bash
+     echo 'export GOPATH=$HOME/go' >> ~/.bashrc
+     source ~/.bashrc
+     ```
+
+   - Adicione `$GOPATH/bin` ao PATH:
+     ```bash
+     echo 'export PATH=$PATH:$GOPATH/bin' >> ~/.bashrc
+     source ~/.bashrc
+     ```
+
+3. **Verifique a instalação:**
+
+   Confirme que o FFUF foi instalado corretamente executando:
+
+   ```bash
+   ffuf -h
+   ```
 
 ## ▶️ Execução
 
-Após configurar tudo, você pode executar o Framboesa com:
+Após configurar tudo, você pode executar o Framboesa ( versão completa ) com:
 
 ```bash
 python -m framboesa.main
 ```
+Após configurar tudo, você pode executar o Framboesa ( versão simplificada ) com:
 
+```bash
+python simple/__init__.py
+```
 ## 📝 Contribuições Futuras
 
 - **Versão beta:** Trabalhando para criar uma versão que não exija a instalação de FFUF separada ou dependências adicionais 💡
